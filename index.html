@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Fuzzy Logic</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="blur blur-1"></div>
+      <div class="blur blur-2"></div>
+      <h1 style="text-transform: uppercase;">Fuzzy Logic</h1>
+      <div class="charts-container">
+        <div class="sub-charts-container">
+          <div class="temperature-chart-container sub-chart-container">
+            <div><canvas id="temperatureChart"></canvas></div>
+            <div><canvas id="temperatureBarChart"></canvas></div>
+            <p class="temp-legend legend">F - Freezing, C - Cool, W - Warm, H - Hot</p>
+          </div>
+          <div class="cloud-cover-chart-container sub-chart-container">
+            <div><canvas id="cloudCoverChart"></canvas></div>
+            <div><canvas id="cloudCoverBarChart"></canvas></div>
+            <p class="cloud-cover-legend legend">S - Sunny, PC - Partly Cloudy, O - Overcast</p>
+          </div>
+        </div>
+        <div class="main-chart-container">
+          <div class="speed-chart-container" style="position: relative; width: 100%;">
+            <canvas id="speedChart"></canvas>
+          </div>
+          <div class="sliders-container">
+            <div class="slider-container">
+              <p class="slider-title">Actual Temperature</p>
+              <div class="slider-content">
+                <input type="range" name="tempValueSlider" id="tempValueSlider" min="-100" max="100" value="0">
+                <div class="value-text-container">
+                  <p class="value-text temp-value-text">0</p>
+                </div>
+              </div>
+            </div>
+            <div class="slider-container">
+              <p class="slider-title">Desired Temperature</p>
+              <div class="slider-content">
+                <input type="range" name="cloudCoverValueSlider" id="cloudCoverValueSlider" min="-100" max="100" value="0">
+                <div class="value-text-container">
+                  <p class="value-text cloud-cover-value-text">0</p>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-randomize">Randomize</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="app">
+      <canvas id="thermalControlCanvas" width="1500px" height="500px"></canvas>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

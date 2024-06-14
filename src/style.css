@@ -1,0 +1,254 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: url(./img/bg.png);
+}
+
+* {
+	font-family: "Roboto";
+}
+
+h1 {
+    color: white;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#app {
+    position: relative;
+    /* width: 90%;
+    height: 92vh; */
+    width: 97%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 1rem;
+    background: #141233;
+    background: rgb(20,18,51);
+    background: linear-gradient(180deg, rgba(20,18,51,1) 0%, rgba(18,16,44,1) 47%, rgba(13,11,32,1) 100%);
+    padding: 2rem 4rem;
+    /* box-shadow: 8px 8px 0px 0px rgba(214, 212, 227, .6); */
+    gap: 2rem;
+}
+
+.charts-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: .3fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+}
+
+.sub-charts-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.sub-chart-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    /* border-radius: 1rem; */
+    border: 2px solid rgba(37, 60, 135, .25);
+}
+
+.sub-chart-container > div {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.main-chart-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.speed-chart-container {
+    padding: 1.5rem;
+    border: 2px solid rgba(37, 60, 135, .25);
+}
+
+.cog-p {
+    color: white;
+    font-family: "Roboto";
+    font-size: 1.5rem;
+}
+
+.cog-text {
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+
+.sliders-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-family: "Roboto";
+    font-size: 1rem;
+}
+
+.slider-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.slider-title {
+    opacity: .9;
+    font-size: 1.25rem;
+    text-wrap: nowrap;
+}
+
+.value-text-container {
+    position: relative;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+}
+
+.value-text {
+    font-size: 2.5rem;
+}
+
+.legend {
+    font-size: .75rem;
+    color: rgba(94, 160, 243, .5);
+    font-family: "Roboto";
+    font-weight: bold;
+    font-style: italic;
+}
+
+.blur {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(400px);
+    z-index: 999;
+    height: 65%;
+    width: 35%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.blur-1 {
+    top: -10px;
+    right: -50px;
+    background: rgba(51, 46, 136, 0.5);
+
+}
+
+.blur-2 {
+    top: 300px;
+    left: -50px;
+    background: rgba(30, 25, 125, 0.5);
+}
+
+.btn-randomize {
+    padding: .75rem 1.25rem;
+    font-family: 'Roboto';
+    font-size: 1rem;
+    border-radius: .5rem;
+    outline: none;
+    border: none;
+    background: #5146d3;
+    color: white;
+    cursor: pointer;
+}
+
+#thermalControlCanvas {
+    border: 1px solid red;
+    border-radius: 1rem;
+}
