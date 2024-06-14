@@ -13,22 +13,22 @@ export const addTemperatureLineChart = (errorNeg, errorZero, errorPos) => {
           label: 'Error Negative',
           data: Array.from({length: 9}, (_, i) => errorNeg.calculate(i-4)),
           fill: false,
-          backgroundColor: '#3b82f6',
-          borderColor: '#3b82f6',
+          backgroundColor: '#f87171',
+          borderColor: '#f87171',
         },
         {
           label: 'Error Zero',
           data: Array.from({length: 9}, (_, i) => errorZero.calculate(i-4)),
           fill: false,
-          backgroundColor: '#67e8f9',
-          borderColor: '#67e8f9',
+          backgroundColor: '#e2e8f0',
+          borderColor: '#e2e8f0',
         },
         {
           label: 'Error Positive',
           data: Array.from({length: 9}, (_, i) => errorPos.calculate(i-4)),
           fill: false,
-          backgroundColor: '#fef08a',
-          borderColor: '#fef08a',
+          backgroundColor: '#4ade80',
+          borderColor: '#4ade80',
         },
       ]
     };
@@ -47,6 +47,9 @@ export const addTemperatureLineChart = (errorNeg, errorZero, errorPos) => {
             x: {
               min: -4,
               max: 4,
+              grid: {
+                color: "rgba(0, 0, 0, 0)",
+              }
             },
             y: {
               min: 0,
@@ -54,6 +57,9 @@ export const addTemperatureLineChart = (errorNeg, errorZero, errorPos) => {
               ticks: {
                 stepSize: .1
               },
+              grid: {
+                color: "rgba(0, 0, 0, 0)",
+              }
             },
           },
           responsive: true, 
@@ -61,9 +67,7 @@ export const addTemperatureLineChart = (errorNeg, errorZero, errorPos) => {
             mode: "x"
           },
           plugins: {
-            legend: {
-              display: false
-            },
+
             title: {
               display: true,
               text: 'Error',
@@ -153,21 +157,21 @@ export const addCloudCoverChart = (sunnyMf, partlyCloudyMf, overcastMf) => {
     labels: Array.from({ length: 20 }, (_, i) => i-10), 
     datasets: [
       {
-        label: 'Sunny',
+        label: 'Error-Dot Negative',
         data: Array.from({length: 20}, (_, i) => sunnyMf.calculate(i-10)),
         fill: false,
         backgroundColor: '#fcd34d',
         borderColor: '#fcd34d',
       },
       {
-        label: 'Partly Cloudly',
+        label: 'Error-Dot Zero',
         data: Array.from({length: 20}, (_, i) => partlyCloudyMf.calculate(i-10)),
         fill: false,
         backgroundColor: '#fdba74',
         borderColor: '#fdba74',
       },
       {
-        label: 'Overcast',
+        label: 'Error-Dot Positive',
         data: Array.from({length: 20}, (_, i) => overcastMf.calculate(i-10)),
         fill: false,
         backgroundColor: '#0e7490',
@@ -187,11 +191,19 @@ export const addCloudCoverChart = (sunnyMf, partlyCloudyMf, overcastMf) => {
           padding: 0
         },
         scales: {
+          x: {
+            grid: {
+              color: "rgba(0, 0, 0, 0)",
+            }
+          },
           y: {
             min: 0,
             max: 1.0,
             ticks: {
               stepSize: .1
+            },
+            grid: {
+              color: "rgba(0, 0, 0, 0)",
             }
           },
         },
@@ -200,9 +212,7 @@ export const addCloudCoverChart = (sunnyMf, partlyCloudyMf, overcastMf) => {
           mode: "x"
         },
         plugins: {
-          legend: {
-            display: false
-          },
+
           title: {
             display: true,
             text: 'Error Dot',
@@ -288,30 +298,30 @@ export const addCloudCoverBarChart = (data) => {
 
 export const addSpeedChart = (cooler, noChange, heater) => {
   const datasets = {
-    labels: Array.from({ length: 201 }, (_, i) => i-100), 
+    labels: Array.from({ length: 201 }, (_, i) => `${i-100}%`), 
     datasets: [
       {
         label: 'Cooler',
         data: Array.from({length: 201}, (_, i) => cooler.calculate(i-100)),
         fill: false,
-        backgroundColor: '#bbf7d0',
-        borderColor: '#bbf7d0',
+        backgroundColor: '#7dd3fc',
+        borderColor: '#7dd3fc',
         order: 2,
       },
       {
         label: 'No Change',
         data: Array.from({length: 201}, (_, i) => noChange.calculate(i-100)),
         fill: false,
-        backgroundColor: '#fda4af',
-        borderColor: '#fda4af',
+        backgroundColor: '#d6d3d1',
+        borderColor: '#d6d3d1',
         order: 2,
       },
       {
         label: 'Heater',
         data: Array.from({length: 201}, (_, i) => heater.calculate(i-100)),
         fill: false,
-        backgroundColor: '#fda4af',
-        borderColor: '#fda4af',
+        backgroundColor: '#facc15',
+        borderColor: '#facc15',
         order: 2,
       },
     ]
@@ -348,7 +358,7 @@ export const addSpeedChart = (cooler, noChange, heater) => {
         plugins: {
           title: {
             display: true,
-            text: 'Output',
+            text: 'Output Type',
             font: {
               size: 24,
               family: "Helvetica",

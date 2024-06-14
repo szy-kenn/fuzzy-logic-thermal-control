@@ -19,9 +19,9 @@ export class ThermalFuzzyLogic {
         this.temperatureLineChart.options.plugins.annotation.annotations[0].xMin = parseInt(temp + 4);
         this.temperatureLineChart.options.plugins.annotation.annotations[0].xMax = parseInt(temp + 4);
         this.temperatureLineChart.update();
-
-        this.cloudCoverChart.options.plugins.annotation.annotations[0].xMin = parseInt(cloudCover);
-        this.cloudCoverChart.options.plugins.annotation.annotations[0].xMax = parseInt(cloudCover);
+        console.log(cloudCover);
+        this.cloudCoverChart.options.plugins.annotation.annotations[0].xMin = parseInt(cloudCover + 10);
+        this.cloudCoverChart.options.plugins.annotation.annotations[0].xMax = parseInt(cloudCover + 10);
         this.cloudCoverChart.update();
     }
 
@@ -90,15 +90,15 @@ export class ThermalFuzzyLogic {
         this.cloudCoverChart = addCloudCoverChart(this.errorDotNeg, this.errorDotZero, this.errorDotPos);
         this.speedChart = addSpeedChart(this.cooler, this.noChange, this.heater);
 
-        this.temperatureBarChart = addTemperatureBarChart([]);
-        this.cloudCoverBarChart = addCloudCoverBarChart([]);
+        // this.temperatureBarChart = addTemperatureBarChart([]);
+        // this.cloudCoverBarChart = addCloudCoverBarChart([]);
     }
 
     processInput(errorVal, errorDotVal) {
         this.#updateLineCharts(errorVal, errorDotVal);
 
         const [fuzzyError, fuzzyErrorDot] = this.fuzzify(errorVal, errorDotVal);
-        this.#updateBarCharts(fuzzyError, fuzzyErrorDot);
+        // this.#updateBarCharts(fuzzyError, fuzzyErrorDot);
 
         const [cooler, noChange, heater] = this.applyRules(fuzzyError, fuzzyErrorDot);
         
